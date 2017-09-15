@@ -37,5 +37,16 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+
+    config.model 'Store' do 
+     ["name", "website", "email", "logo"].each do |field|
+        field field.to_sym
+      end
+    end
+    config.model 'Product' do 
+     ["name", "price", "parcels", "image"].each do |field|
+        field field.to_sym
+      end
+    end
   end
 end
