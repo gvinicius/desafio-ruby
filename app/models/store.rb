@@ -1,13 +1,23 @@
 class Store
   include Mongoid::Document
+  include Mongoid::Paperclip
+
+  has_mongoid_attached_file :logo
+  validates_attachment :logo,
+    :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
+    :size => { less_than: 2.megabytes }
+  has_attached_file :logo
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
-  field :encrypted_password, type: String, default: ""
+  field :name,                type: String, default: ""
+  field :website,             type: String, default: ""
+  field :email,               type: String, default: ""
+  field :encrypted_password,  type: String, default: ""
 
   ## Recoverable
   field :reset_password_token,   type: String

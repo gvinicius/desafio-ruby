@@ -1,0 +1,16 @@
+<!-- Beautiful Scaffold Menu Do Not Touch This -->
+      <li class="<%= "active" if params[:controller] == "places" %>">
+        <%= link_to t('app.models.place.bs_caption_plural', :default => 'place').capitalize, places_path %>
+      </li>
+      <li class="<%= "active" if params[:controller] == "evaluations" %>">
+        <%= link_to t('app.models.evaluation.bs_caption_plural', :default => 'evaluation').capitalize, evaluations_path %>
+      </li>
+<% if user_signed_in? %>
+  <li><%= link_to 'My Evaluations', my_index_evaluations_path %></li>
+  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+<% else %>
+  <li><%= link_to 'Log in', new_user_session_path %></li>
+  <li><%= link_to 'Sign up', new_user_registration_path %></li>
+<% end %>
+  <li><%= link_to 'About', '/about' %></li>

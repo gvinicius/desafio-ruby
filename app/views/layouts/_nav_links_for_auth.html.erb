@@ -1,0 +1,7 @@
+<% if store_signed_in? %>
+  <li><%= link_to 'Edit account', edit_store_registration_path %></li>
+  <li><%= link_to 'Sign out', destroy_store_session_path, :method=>'delete' %></li>
+<% else %>
+  <li><%= link_to 'Sign in', new_store_session_path %></li>
+  <li><%= link_to 'Sign up', new_store_registration_path %></li>
+<% end %>
