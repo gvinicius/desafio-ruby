@@ -5,13 +5,16 @@ class ApplicationController < ActionController::Base
   def index
   end
 
-  def application_params
-    params.require(:application).permit(:id)
+  def search
+    if params[:keywords].present?
+      @products = Product.search params[:keywords], fields: [:name]
+      puts @products
+    end
   end
 
-  #def after_sign_in_path_for(resource_or_scope)
-    #my_index_evaluations_path
-  #end
+  def application_params
+    params.require(:application).permit(:id, :keywords)
+  end
 
   protected
 

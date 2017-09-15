@@ -1,4 +1,4 @@
-class Product
+class Product 
   include Mongoid::Document
   include Mongoid::Paperclip
   belongs_to :store
@@ -9,6 +9,9 @@ class Product
   end
 
   has_mongoid_attached_file :image
+  validates :name, :price, presence: true
+  validates :parcels, numericality: { only_integer: true, greater_than: 0 }
+  validates :price, numericality: { greater_than: 0 }
   validates_attachment :image,
     :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
     :size => { less_than: 2.megabytes }
@@ -24,4 +27,6 @@ class Product
       label 'Store selling it: '
     end
   end
+
+  searchkick
 end
