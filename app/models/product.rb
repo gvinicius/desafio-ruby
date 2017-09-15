@@ -1,7 +1,12 @@
 class Product
   include Mongoid::Document
   include Mongoid::Paperclip
-  embeds_one Store
+  belongs_to :store
+
+  def save_product(store)
+    self.store = store
+    self.save
+  end
 
   has_mongoid_attached_file :image
   validates_attachment :image,
@@ -10,7 +15,7 @@ class Product
   has_attached_file :image
 
   field :name, type: String
-  field :price, type: Decimal
+  field :price, type: Float 
   field :parcels, type: Integer
   field :url, type: String
 end

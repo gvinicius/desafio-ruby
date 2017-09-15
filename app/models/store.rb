@@ -1,7 +1,7 @@
 class Store
   include Mongoid::Document
   include Mongoid::Paperclip
-  #has_many Product
+  has_many :products
 
   has_mongoid_attached_file :logo
   validates_attachment :logo,

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: "application#index"
 
   authenticate :store do
-    resources :products, only: [:new, :create, :edit, :update]
+    resources :products, only: [:new, :create, :edit, :update, :destroy, :delete]
   end
 end
