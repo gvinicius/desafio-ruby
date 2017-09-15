@@ -9,15 +9,15 @@ O plano é o seguinte:
 
 0 - Você vai criar tipo um marketplace
 
-1 - Permitir cadastro de lojas. Utilizar a gem “devise” para gerenciar cadastro/login das lojas - OK, salvo o logo
+1 - Permitir cadastro de lojas. Utilizar a gem “devise” para gerenciar cadastro/login das lojas - OK
 
-2 - Consumir as APIs das lojas abaixo, e importar pelo menos 100 produtos DE CADA loja para o DBMongo - criar produto e associar a Store
+2 - Consumir as APIs das lojas abaixo, e importar pelo menos 100 produtos DE CADA loja para o DBMongo - OK 
 
 3 - Exibir os produtos em grid conforme print abaixo
 
 4 - Fazer uma busca indexada por produto utilizando o Elasticsearch (Em termos de layout, você pode remover os filtros que têm no print e adicionar um campo de busca no lugar)
 
-5 - Fazer uma interface administrativa utilizando rails_admin para gerenciar as lojas e respectivos produtos
+5 - Fazer uma interface administrativa utilizando rails_admin para gerenciar as lojas e respectivos produtos - OK
 
 
 Ps.: Caso seja necessário, segue adaptador do kaminari para o mongoid --> https://github.com/kaminari/kaminari-mongoid

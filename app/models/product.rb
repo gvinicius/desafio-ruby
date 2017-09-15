@@ -18,4 +18,10 @@ class Product
   field :price, type: Float 
   field :parcels, type: Integer
   field :url, type: String
+
+  rails_admin do
+    configure :store do
+      label 'Store selling it: '
+    end
+  end
 end
