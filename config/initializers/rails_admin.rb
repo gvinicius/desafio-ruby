@@ -1,5 +1,6 @@
 RailsAdmin.config do |config|
 
+  config.main_app_name = ["Ruby Challenge Markplace", ""]
   ### Popular gems integration
 
   # == Devise ==

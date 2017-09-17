@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
-  end
-
-  def search
     if params[:keywords].present?
       @products = Product.search params[:keywords], fields: [:name]
       puts @products
     end
+  end
+
+  def search
   end
 
   def application_params

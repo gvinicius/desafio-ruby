@@ -3,10 +3,11 @@ class Product
   include Mongoid::Paperclip
   belongs_to :store
 
-  def save_product(store)
-    self.store = store
-    self.save
-  end
+# before_save :save_product
+
+# def save_product
+#   self.store = current_store
+# end
 
   has_mongoid_attached_file :image
   validates :name, :price, presence: true
