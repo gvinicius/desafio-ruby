@@ -10,7 +10,7 @@ class Product
 # end
 
   has_mongoid_attached_file :image
-  validates :name, :price, presence: true
+  validates :name, :price, :parcels, presence: true
   validates :parcels, numericality: { only_integer: true, greater_than: 0 }
   validates :price, numericality: { greater_than: 0 }
   validates_attachment :image,
@@ -22,6 +22,7 @@ class Product
   field :price, type: Float 
   field :parcels, type: Integer
   field :url, type: String
+  field :store_id, type: String
 
   rails_admin do
     configure :store do
@@ -29,5 +30,5 @@ class Product
     end
   end
 
-  searchkick
+  searchkick callbacks: :async
 end

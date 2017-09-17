@@ -18,28 +18,31 @@
     <% end %>
        <div class="container">
          <form role="form" action="/">
-           <h2 class="">Busca de produtos</h2>
+           <h2 class="">Search products</h2>
            <input type="text" class="form-control" name="keywords">
            <br>
-           <button class="btn btn-primary btn-block" type="submit">Procurar</button>
+           <button class="btn btn-primary btn-block" type="submit">Search</button>
            <br>
          </form>
          <div class="row">
            <% if @products.present? %>
              <% @products.each do |product| %>
                <div class="col-sm-6 col-md-5">
-                 <div class="thumbnail">
-                   <%= image_tag product.image.url unless product.image.url.nil? %>
+                 <div class="thumbnail" >
+                   <% unless product.image.url.nil? %>
+                     <%= image_tag(product.image.url, class: "img-fluid") %>
+                   <% end %>
                  </div>
                  <p><%= product.name %></p>
-                 <p><%= product.price %></p>
+                 <p>Price<%= product.price %></p>
+                 <p>In: <%= product.parcels %> parcels</p>
                  <%= link_to product.url unless product.url.nil? %>
+                 <hr/>
                </div>
              <% end %>
            <% end %>
          </div>
        </div>
-       <%= yield %>
     </main>
   </body>
 </html>

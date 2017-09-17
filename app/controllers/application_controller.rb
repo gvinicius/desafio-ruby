@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     params.require(:application).permit(:id, :keywords)
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    rails_admin_path
+  end
+
   protected
 
   def configure_permitted_parameters
