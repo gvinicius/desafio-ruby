@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_current_store, :configure_permitted_parameters, if: :devise_controller?
+ 
 
+def set_current_store
+  Product.current_store = current_store
+end
   def index
     if params[:keywords].present?
       @products = Product.search params[:keywords], fields: [:name]

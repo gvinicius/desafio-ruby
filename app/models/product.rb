@@ -1,14 +1,14 @@
 class Product 
   include Mongoid::Document
   include Mongoid::Paperclip
-  belongs_to :store, required: false
-=begin
-before_save :prepare_store
+  belongs_to :store
+  cattr_accessor :current_store
+  before_save :prepare_store
 
-def prepare_store
-  store = Store.find_by(email: store_email)
-end
-=end
+  def prepare_store
+    puts Product.current_store 
+    store = Product.current_store 
+  end
 
   has_mongoid_attached_file :image
   validates :name, :price, :parcels, presence: true

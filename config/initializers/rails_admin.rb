@@ -50,11 +50,9 @@ RailsAdmin.config do |config|
         field field.to_sym
       end
       create do
-        field :store, :hidden do
+        field :store_id, :hidden do
           default_value do
-            puts 'My email'
-            puts bindings[:view]._current_store
-            bindings[:view]._current_store
+            Product.current_store.id
           end
         end
       end
