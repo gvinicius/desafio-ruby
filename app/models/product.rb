@@ -4,9 +4,9 @@ class Product
   belongs_to :store
   cattr_accessor :current_store
   before_save :prepare_store
+  default_scope { where(store: Product.current_store) }
 
   def prepare_store
-    puts Product.current_store 
     store = Product.current_store 
   end
 
