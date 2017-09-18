@@ -7,6 +7,7 @@ class Store
   validates :email, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: 'Incorrect email format!' }
   validates_attachment :logo,
+  validates_attachment_presence :logo,
     :size => { less_than: 2.megabytes }
   validates :email,  uniqueness: true 
   has_attached_file :logo
