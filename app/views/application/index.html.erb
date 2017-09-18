@@ -34,8 +34,9 @@
                    <% end %>
                  </div>
                  <p><%= product.name %></p>
-                 <p>Price<%= product.price %></p>
+                 <p>Price: <%= product.price %></p>
                  <p>In: <%= product.parcels %> parcels</p>
+                 <p>Seller: <%= product.store_name %></p>
                  <%= link_to product.url unless product.url.nil? %>
                  <hr/>
                </div>
