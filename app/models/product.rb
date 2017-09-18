@@ -15,7 +15,6 @@ class Product
   validates :parcels, numericality: { only_integer: true, greater_than: 0 }
   validates :price, numericality: { greater_than: 0 }
   validates_attachment :image,
-    :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
     :size => { less_than: 2.megabytes }
   has_attached_file :image
 
