@@ -19,3 +19,4 @@
 .byebug_history
 public/system/
 public/assets/
+config/secrets.yml

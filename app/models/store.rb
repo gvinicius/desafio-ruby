@@ -4,7 +4,7 @@ class Store
   has_many :products
 
   has_mongoid_attached_file :logo
-  validates :name, :email, :website, presence: true
+  validates :email, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: 'Incorrect email format!' }
   validates_attachment :logo,
     :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
