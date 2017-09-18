@@ -17,6 +17,7 @@ class Product
   validates_attachment :image,
     :size => { less_than: 2.megabytes }
   has_attached_file :image
+  validates_attachment_presence :image
 
   field :name, type: String
   field :price, type: Float 
