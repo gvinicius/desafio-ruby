@@ -23,7 +23,7 @@ class Product
   field :price, type: Float 
   field :parcels, type: Integer
   field :url, type: String
-  field :store_email, type: String
+  field :store_name, type: String
 
   searchkick callbacks: :async
 end
