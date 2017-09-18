@@ -10,13 +10,16 @@ class Product
     store = Product.current_store 
   end
 
+  def save_prodcut(store)
+  end
+
   has_mongoid_attached_file :image
   validates :name, :price, :parcels, presence: true
   validates :parcels, numericality: { only_integer: true, greater_than: 0 }
   validates :price, numericality: { greater_than: 0 }
   validates_attachment :image,
     :size => { less_than: 2.megabytes }
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   has_attached_file :image
 
   field :name, type: String

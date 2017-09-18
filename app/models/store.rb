@@ -9,7 +9,7 @@ class Store
   has_mongoid_attached_file :logo
   validates_attachment :logo,
     :size => { less_than: 2.megabytes }
-  validates_attachment_content_type :logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
