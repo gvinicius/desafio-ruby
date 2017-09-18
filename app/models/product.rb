@@ -1,13 +1,14 @@
 class Product 
   include Mongoid::Document
   include Mongoid::Paperclip
-  belongs_to :store
+  belongs_to :store, required: false
+=begin
+before_save :prepare_store
 
-# before_save :save_product
-
-# def save_product
-#   self.store = current_store
-# end
+def prepare_store
+  store = Store.find_by(email: store_email)
+end
+=end
 
   has_mongoid_attached_file :image
   validates :name, :price, :parcels, presence: true
@@ -22,13 +23,7 @@ class Product
   field :price, type: Float 
   field :parcels, type: Integer
   field :url, type: String
-  field :store_id, type: String
-
-  rails_admin do
-    configure :store do
-      label 'Store selling it: '
-    end
-  end
+  field :store_email, type: String
 
   searchkick callbacks: :async
 end

@@ -9,6 +9,7 @@ class Store
   validates_attachment :logo,
     :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] },
     :size => { less_than: 2.megabytes }
+  validates :name, :email,  uniqueness: true 
   has_attached_file :logo
 
   # Include default devise modules. Others available are:

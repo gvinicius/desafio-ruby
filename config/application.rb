@@ -28,5 +28,6 @@ module DesafioRuby
     # Don't generate system test files.
     config.generators.system_tests = nil
     ENV['RAILS_ADMIN_THEME'] = 'rollincode'
+    config.api_only = false
   end
 end
