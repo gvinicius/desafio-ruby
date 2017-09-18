@@ -16,8 +16,8 @@ class Product
   validates :price, numericality: { greater_than: 0 }
   validates_attachment :image,
     :size => { less_than: 2.megabytes }
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   has_attached_file :image
-  validates_attachment_presence :image
 
   field :name, type: String
   field :price, type: Float 
